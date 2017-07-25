@@ -34,6 +34,6 @@ root [le chemin absolu du répertoire d'installation de verif.ssl-site];
 ```
 ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 ```
-- Vous pouvez modifier la liste dans **__~/verif.ssl-site/domainlist__** (**UN seul domaine par ligne !**)
+- Vous pouvez modifier la liste des domaines à verifier dans **__~/verif.ssl-site/domainlist__** (**UN seul domaine par ligne !**)
 ## Windows
 TODO
