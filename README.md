@@ -28,8 +28,6 @@ cgi.fix_pathinfo=0
 - Modifiez le fichier nginx.conf pour qu'il corresponde avec votre installation
 ```
 server_name [le nom de domaine de votre choix];
-```
-```
 root [le chemin absolu du répertoire d'installation de verif.ssl-site];
 ```
 - Activez le site
