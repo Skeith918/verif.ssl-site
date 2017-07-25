@@ -44,7 +44,7 @@ $domain = file($list, FILE_IGNORE_NEW_LINES);
         echo '<tr>';
 				echo '<td>' .$item. '</td>';
 				echo '<td>' .gethostbyname($item). '</td>';
-				echo '<td>' .exec('echo | openssl s_client -connect consultation.etalab.gouv.fr:443 2>/dev/null | openssl x509 -noout -dates | grep "After" | cut -d "=" -f2'). '</td>';
+				echo '<td>' .exec('echo | openssl s_client -connect '.$item.':443 2>/dev/null | openssl x509 -noout -dates | grep "After" | cut -d "=" -f2'). '</td>';
 				echo '</tr>';
 			}
       ?>
