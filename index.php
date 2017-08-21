@@ -1,6 +1,10 @@
 <?php
-$list = "./domainlist";
-$domain = file($list, FILE_IGNORE_NEW_LINES);
+$listdomain = "./domainlist";
+$domain = file($listdomain, FILE_IGNORE_NEW_LINES);
+foreach($domain as $item){
+	$ip=gethostbyname($item);
+	shell_exec("sudo ./getcertinfo.sh $item $ip");
+};
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +28,11 @@ $domain = file($list, FILE_IGNORE_NEW_LINES);
           </button>
           <a class="navbar-brand" href="/#">Verif.SSL</a>
         </div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<ul class="nav navbar-nav">
+          	<li align="center"><? echo '<td>' .date("d.m.y"). '</td>';?></li>
+        	</ul>
+				</div>
       </div>
     </nav>
 
@@ -34,17 +43,28 @@ $domain = file($list, FILE_IGNORE_NEW_LINES);
     <tr>
       <th>Domaine</th>
       <th>IP</th>
-      <th>Expiration du certificat</th>
+			<th>Validité du certificat</th>
+      <th>Date d'expiration du certificat</th>
+			<th>Jours Restants</th>
     </tr>
   </thead>
 
     <tbody>
       <?php
-			foreach($domain as $item){
-        echo '<tr>';
-				echo '<td>' .$item. '</td>';
-				echo '<td>' .gethostbyname($item). '</td>';
-				echo '<td>' .exec('echo | openssl s_client -connect '.$item.':443 2>/dev/null | openssl x509 -noout -dates | grep "After" | cut -d "=" -f2'). '</td>';
+			$listcert = "./certinfo";
+			$cert = file($listcert, FILE_IGNORE_NEW_LINES);
+			foreach($cert as $item){
+				$domain=exec("echo $item | awk '{print $1}'");
+				$ipadd=exec("echo $item | awk '{print $2}'");
+				$valid=exec("echo $item | awk '{print $3}'");
+				$datexpiry=exec("echo $item | awk '{print $5,$4,$6}'");
+				$datleft=exec("echo $item | awk '{print $7}'");
+				echo '<tr>';
+				echo '<td>' .$domain. '</td>';
+				echo '<td>' .$ipadd. '</td>';
+				echo '<td>' .$valid.'e </td>';
+				echo '<td>' .$datexpiry. '</td>';
+				echo '<td>' .$datleft. '</td>';
 				echo '</tr>';
 			}
       ?>
