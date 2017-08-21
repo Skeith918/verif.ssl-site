@@ -54,18 +54,26 @@ foreach($domain as $item){
 			$listcert = "./certinfo";
 			$cert = file($listcert, FILE_IGNORE_NEW_LINES);
 			foreach($cert as $item){
+				$class;
 				$domain=exec("echo $item | awk '{print $1}'");
 				$ipadd=exec("echo $item | awk '{print $2}'");
 				$valid=exec("echo $item | awk '{print $3}'");
-				$datexpiry=exec("echo $item | awk '{print $5,$4,$6}'");
-				$datleft=exec("echo $item | awk '{print $7}'");
-				echo '<tr>';
-				echo '<td>' .$domain. '</td>';
-				echo '<td>' .$ipadd. '</td>';
-				echo '<td>' .$valid.'e </td>';
-				echo '<td>' .$datexpiry. '</td>';
-				echo '<td>' .$datleft. '</td>';
-				echo '</tr>';
+				$datexpiry=exec("echo $item | awk '{print $4,$5,$6}'");
+				$dayleft=exec("echo $item | awk '{print $7}'");
+				if ($valid != "Valid"){
+					$class='<tr class="danger">';
+				} elseif ($dayleft < 50 ) {
+					$class='<tr class="warning">';
+				} else {
+					$class='<tr>';
+				}
+					echo $class;
+					echo '<td>' .$domain. '</td>';
+					echo '<td>' .$ipadd. '</td>';
+					echo '<td>' .$valid. '</td>';
+					echo '<td>' .$datexpiry. '</td>';
+					echo '<td>' .$dayleft. '</td>';
+					echo '</tr>';
 			}
       ?>
     </tbody>
