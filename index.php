@@ -62,7 +62,7 @@ foreach($domain as $item){
 				$dayleft=exec("echo $item | awk '{print $7}'");
 				if ($valid != "Valid"){
 					$class='<tr class="danger">';
-				} elseif ($dayleft < 50 ) {
+				} elseif ($dayleft < 10 ) {
 					$class='<tr class="warning">';
 				} else {
 					$class='<tr>';
