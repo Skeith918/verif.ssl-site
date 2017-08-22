@@ -30,7 +30,7 @@ foreach($domain as $item){
         </div>
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
-                                                <li><a><?php echo '<td>' .date("d/m/y"). '</td>';?></a></li>
+                                                <li><a><?php echo '<td>' .date("d M Y | H:i"). '</td>';?></a></li>
                                         </ul>
                                 </div>
       </div>
