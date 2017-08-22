@@ -3,7 +3,7 @@ $listdomain = "./domainlist";
 $domain = file($listdomain, FILE_IGNORE_NEW_LINES);
 foreach($domain as $item){
 	$ip=gethostbyname($item);
-	shell_exec("sudo ./getcertinfo.sh $item $ip");
+	shell_exec("sudo ./.getcertinfo.sh $item $ip");
 };
 ?>
 
