@@ -28,11 +28,11 @@ foreach($domain as $item){
           </button>
           <a class="navbar-brand" href="/#">Verif.SSL</a>
         </div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        	<ul class="nav navbar-nav">
-          	<li align="center"><? echo '<td>' .date("d.m.y"). '</td>';?></li>
-        	</ul>
-				</div>
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav navbar-right">
+                                                <li><a><?php echo '<td>' .date("d/m/y"). '</td>';?></a></li>
+                                        </ul>
+                                </div>
       </div>
     </nav>
 
