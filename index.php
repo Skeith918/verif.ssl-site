@@ -47,7 +47,7 @@ foreach($domain as $item){
 
     <tbody>
       <?php
-			$listcert = "./certinfo";
+			$listcert = "./.certinfo";
 			$cert = file($listcert, FILE_IGNORE_NEW_LINES);
 			foreach($cert as $item){
 				$class;
@@ -76,7 +76,7 @@ foreach($domain as $item){
 </div>
 </body>
 <footer>
-	<p align="center"> Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
+	<p align="center"> P.O.C Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
 	<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
 	<p align="center"> Design Powered by <a href="https://bootswatch.com/">Bootswatch</a></p>
 </footer>
