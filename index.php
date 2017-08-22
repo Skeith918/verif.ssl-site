@@ -68,7 +68,7 @@ foreach($domain as $item){
 					$class='<tr>';
 				}
 					echo $class;
-					echo '<td>' .$domain. '</td>';
+					echo '<td><a href="https://' .$domain. '">' .$domain. '<a/></td>';
 					echo '<td>' .$ipadd. '</td>';
 					echo '<td>' .$valid. '</td>';
 					echo '<td>' .$datexpiry. '</td>';
