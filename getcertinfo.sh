@@ -12,3 +12,13 @@ then
 else
   echo $1 $2 $valid $datexpiry $dayleft >> certinfo
 fi
+
+while read line; do
+  domain=$(echo $line | awk '{print $1}')
+  if grep $domain domainlist
+  then
+    echo 'ok'
+  else
+    sed -i '/'$domain'/d' certinfo
+  fi
+done <certinfo
