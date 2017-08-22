@@ -52,22 +52,20 @@ foreach($domain as $item){
 			foreach($cert as $item){
 				$class;
 				$domain=exec("echo $item | awk '{print $1}'");
-				$ipadd=exec("echo $item | awk '{print $2}'");
 				$valid=exec("echo $item | awk '{print $3}'");
-				$datexpiry=exec("echo $item | awk '{print $4,$5,$6}'");
 				$dayleft=exec("echo $item | awk '{print $7}'");
 				if ($valid != "Valid"){
 					$class='<tr class="danger">';
 				} elseif ($dayleft < 20 ) {
 					$class='<tr class="warning">';
 				} else {
-					$class='<tr>';
+					$class='<tr class="active">';
 				}
 					echo $class;
 					echo '<td><a href="https://' .$domain. '">' .$domain. '<a/></td>';
-					echo '<td>' .$ipadd. '</td>';
+					echo '<td>' .exec("echo $item | awk '{print $2}'"). '</td>';
 					echo '<td>' .$valid. '</td>';
-					echo '<td>' .$datexpiry. '</td>';
+					echo '<td>' .exec("echo $item | awk '{print $4,$5,$6}'"). '</td>';
 					echo '<td>' .$dayleft. '</td>';
 					echo '</tr>';
 			}
