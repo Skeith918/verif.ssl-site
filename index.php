@@ -81,4 +81,9 @@ foreach($domain as $item){
 
 </div>
 </body>
+<footer>
+	<p align="center"> Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
+	<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
+	<p align="center"> Design Powered by <a href="https://bootswatch.com/">Bootswatch</a></p>
+</footer>
 </html>
