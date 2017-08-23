@@ -13,32 +13,35 @@ foreach($domain as $item){
 <head>
 	<meta charset="UTF-8"/>
 	<title>Verif.SSL</title>
-	<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
-	<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 
 </head>
 
 <body>
+	<div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="/" class="header item">
+        <img class="logo" src="https://www.flytap.com/-/media/Flytap/reserved-area/benefits/check-in.svg" width="32" height="32">
+        Verif.SSL
+      </a>
+			<div class="right item">
+				<a><?php echo date("d M Y | H:i");?></a>
+			</div>
+		</div>
+  </div>
 
-  <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-					<a class="navbar-brand" href="/">Verif.SSL</a>
-        </div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a><?php echo '<td>' .date("d M Y | H:i"). '</td>';?></a></li>
-					</ul>
-				</div>
-      </div>
-    </nav>
+<div class="ui one column stackable center aligned page grid">
+	<div class="column twenty wide">
+	</br></br>
 
-<div class="container">
-	<h1 align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
-</br></br>
-	<p align="center"><strong>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</strong></p>
-	<p align="center"><strong>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</strong></p>
-  <table class="table table-striped table-hover ">
+	<h1 class="ui header" align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
+
+<div class="ui info message">Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.
+  </div>
+
+  <table class="ui celled table segment">
   <thead>
     <tr>
       <th>Domaine</th>
@@ -59,7 +62,7 @@ foreach($domain as $item){
 				$valid=exec("echo $item | awk '{print $3}'");
 				$dayleft=exec("echo $item | awk '{print $7}'");
 				if ($valid != "Valid"){
-					$class='<tr class="danger">';
+					$class='<tr class="negative">';
 				} elseif ($dayleft < 20 ) {
 					$class='<tr class="warning">';
 				} else {
@@ -76,12 +79,17 @@ foreach($domain as $item){
       ?>
     </tbody>
   </table>
-
+ </div>
 </div>
 </body>
-<footer>
-	<p align="center"> P.O.C Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
-	<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
-	<p align="center"> Design Powered by <a href="https://bootswatch.com/">Bootswatch</a></p>
-</footer>
+</br></br>
+<div class="ui inverted vertical footer segment">
+  <div class="ui container">
+		<footer>
+			<p align="center"> P.O.C Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
+			<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
+			<p align="center"> Design Powered by <a href="https://bootswatch.com/">Bootswatch</a></p>
+		</footer>
+	</div>
+</div>
 </html>
