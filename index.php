@@ -2,9 +2,10 @@
 $listdomain = "./domainlist";
 $domain = file($listdomain, FILE_IGNORE_NEW_LINES);
 foreach($domain as $item){
-	$ip=gethostbyname($item);
-	shell_exec("sudo ./.getcertinfo.sh $item $ip");
-};
+	$domain=exec("echo $item | awk '{print $1}'");
+	$ip=gethostbyname($domain);
+	shell_exec("sudo ./.getcertinfo.sh $domain $ip");
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,10 @@ foreach($domain as $item){
     </nav>
 
 <div class="container">
-
+	<h1 align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
+</br></br>
+	<p align="center"><strong>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</strong></p>
+	<p align="center"><strong>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</strong></p>
   <table class="table table-striped table-hover ">
   <thead>
     <tr>
