@@ -8,6 +8,7 @@
 - php7
 - php7-fpm
 - php7.0-curl
+- [ssllabs-scan](https://github.com/ssllabs/ssllabs-scan/releases)
 ```
 sudo apt install -y php php-fpm php-curl nginx ssl-cert-check
 ```
@@ -38,5 +39,9 @@ root [le chemin absolu du répertoire d'installation de verif.ssl-site];
 ```
 ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 ```
-- Vous pouvez modifier la liste des domaines à verifier dans **__~/verif.ssl-site/domainlist__** (**UN seul domaine par ligne !**)
+# Usages
+
+- Entrez la liste des domaines à verifier dans **__~/verif.ssl-site/domainlist__** (**UN seul domaine par ligne !**)
+- Lancez le script deploy.sh (vous devrez le faire à chaque nouvel ajout de domaine sinon cela ne fonctionnera pas et vous aurez une erreur 504 Gateway Timeout) 
+- Une fois l'exécution du script achevé vous pouvez accéder à l'interface !
 
