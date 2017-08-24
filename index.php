@@ -14,9 +14,12 @@ foreach($domain as $item){
 	<meta charset="UTF-8"/>
 	<link rel="shortcut icon" href="http://www.iconarchive.com/download/i103471/paomedia/small-n-flat/sign-check.ico" width="16" height="16">
 	<title>Verif.SSL</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/search.js"></script>
 
 </head>
 
@@ -27,7 +30,7 @@ foreach($domain as $item){
         <img class="logo" src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png" width="32" height="32">
         Verif.SSL
       </a>
-			<div class="right item">
+			<div class="fixed right item">
 				<a><?php echo date("d M Y | H:i");?></a>
 			</div>
 		</div>
@@ -35,12 +38,22 @@ foreach($domain as $item){
 
 <div class="ui one column stackable center aligned page grid">
 	<div class="column twenty wide">
-	</br></br>
+</br></br>
 
 	<h1 class="ui header" align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
 
-<div class="ui info message">Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.
+<div class="ui message info">
+	<i class="close icon"></i>
+	<p>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</p>
+		<p>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</p>
   </div>
+
+	<!--<div class="ui action input">
+	  <input type="text" placeholder="Recherche...">
+	  <button class="ui icon button">
+	    <i class="search icon"></i>
+	  </button>
+	</div>-->
 
   <table class="ui celled table segment">
   <thead>
