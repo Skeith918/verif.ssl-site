@@ -31,7 +31,24 @@ foreach($domain as $item){
         Verif.SSL
       </a>
 			<div class="fixed right item">
-				<a><?php echo date("d M Y | H:i");?></a>
+				<div id="date_heure">
+					<script type="text/javascript">
+					function compZero(nombre) {
+						return nombre < 10 ? '0' + nombre : nombre;
+					}
+					function date_heure() {
+						const infos = new Date();
+						const mois = new Array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+						const jours = new Array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
+						document.getElementById('date_heure').innerHTML = jours[infos.getDay()] + ' ' + infos.getDate() + ' ' + mois[infos.getMonth()] + ' ' + infos.getFullYear() + ' | ';
+						document.getElementById('date_heure').innerHTML += compZero(infos.getHours()) + ' : ' + compZero(infos.getMinutes()) + ' : ' + compZero(infos.getSeconds());
+					}
+					window.onload = function() {
+						setInterval("date_heure()", 1000); //Actualisation de l'heure
+					};
+					</script>
+				</div>
+				<!--<a><?php echo date("d M Y | H:i");?></a>-->
 			</div>
 		</div>
   </div>
@@ -43,17 +60,10 @@ foreach($domain as $item){
 	<h1 class="ui header" align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
 
 <div class="ui message info">
-	<i class="close icon"></i>
 	<p>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</p>
 		<p>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</p>
   </div>
 
-	<!--<div class="ui action input">
-	  <input type="text" placeholder="Recherche...">
-	  <button class="ui icon button">
-	    <i class="search icon"></i>
-	  </button>
-	</div>-->
 
   <table class="ui celled table segment">
   <thead>
