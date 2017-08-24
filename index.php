@@ -12,6 +12,7 @@ foreach($domain as $item){
 <html>
 <head>
 	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" href="http://www.iconarchive.com/download/i103471/paomedia/small-n-flat/sign-check.ico" width="16" height="16">
 	<title>Verif.SSL</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -23,7 +24,7 @@ foreach($domain as $item){
 	<div class="ui fixed inverted menu">
     <div class="ui container">
       <a href="/" class="header item">
-        <img class="logo" src="https://www.flytap.com/-/media/Flytap/reserved-area/benefits/check-in.svg" width="32" height="32">
+        <img class="logo" src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png" width="32" height="32">
         Verif.SSL
       </a>
 			<div class="right item">
@@ -47,6 +48,7 @@ foreach($domain as $item){
       <th>Domaine</th>
       <th>IP</th>
 			<th>Validité du certificat</th>
+			<th>Note SSL</th>
       <th>Date d'expiration du certificat</th>
 			<th>Jours Restants</th>
     </tr>
@@ -58,22 +60,27 @@ foreach($domain as $item){
 			$cert = file($listcert, FILE_IGNORE_NEW_LINES);
 			foreach($cert as $item){
 				$class;
+				$icn='';
 				$domain=exec("echo $item | awk '{print $1}'");
 				$valid=exec("echo $item | awk '{print $3}'");
 				$dayleft=exec("echo $item | awk '{print $7}'");
+				$grade=exec("echo $item | awk '{print $8}'");
 				if ($valid != "Valid"){
 					$class='<tr class="negative">';
+					$icn='<i class="attention icon"></i>';
 				} elseif ($dayleft < 20 ) {
 					$class='<tr class="warning">';
+					$icn='<i class="attention icon"></i>';
 				} else {
 					$class='<tr class="active">';
 				}
 					echo $class;
 					echo '<td><a href="https://' .$domain. '">' .$domain. '<a/></td>';
 					echo '<td>' .exec("echo $item | awk '{print $2}'"). '</td>';
-					echo '<td>' .$valid. '</td>';
+					echo '<td>' .$icn. '' .$valid. '</td>';
+					echo '<td><a href="https://www.ssllabs.com/ssltest/analyze.html?d=' .$domain. '&latest">' .$grade. '<a/></td>';
 					echo '<td>' .exec("echo $item | awk '{print $4,$5,$6}'"). '</td>';
-					echo '<td>' .$dayleft. '</td>';
+					echo '<td>' .$icn. '' .$dayleft. '</td>';
 					echo '</tr>';
 			}
       ?>
@@ -88,7 +95,7 @@ foreach($domain as $item){
 		<footer>
 			<p align="center"> P.O.C Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
 			<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
-			<p align="center"> Design Powered by <a href="https://bootswatch.com/">Bootswatch</a></p>
+			<p align="center"> Design Powered by <a href="https://semantic-ui.com/">Semantic UI</a> CDN</p>
 		</footer>
 	</div>
 </div>
