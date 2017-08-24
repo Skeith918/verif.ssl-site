@@ -45,12 +45,12 @@ foreach($domain as $item){
   <table class="ui celled table segment">
   <thead>
     <tr>
-      <th>Domaine</th>
-      <th>IP</th>
-			<th>Validité du certificat</th>
-			<th>Note SSL</th>
-      <th>Date d'expiration du certificat</th>
-			<th>Jours Restants</th>
+      <th class="center aligned">Nom de Domaine</th>
+      <th class="center aligned">Addresse IP</th>
+			<th class="center aligned">Validité du certificat</th>
+			<th class="center aligned">Note SSL</th>
+      <th class="center aligned">Date d'expiration</th>
+			<th class="center aligned">Jours Restants</th>
     </tr>
   </thead>
 
@@ -65,22 +65,25 @@ foreach($domain as $item){
 				$valid=exec("echo $item | awk '{print $3}'");
 				$dayleft=exec("echo $item | awk '{print $7}'");
 				$grade=exec("echo $item | awk '{print $8}'");
-				if ($valid != "Valid"){
+				if ( ($valid != "Valid") && ($dayleft < 0) ){
 					$class='<tr class="negative">';
 					$icn='<i class="attention icon"></i>';
+					$tdvalid='Expiré';
 				} elseif ($dayleft < 20 ) {
 					$class='<tr class="warning">';
 					$icn='<i class="attention icon"></i>';
+					$tdvalid='Expiration imminente';
 				} else {
 					$class='<tr class="active">';
+					$tdvalid='Valide';
 				}
 					echo $class;
 					echo '<td><a href="https://' .$domain. '">' .$domain. '<a/></td>';
 					echo '<td>' .exec("echo $item | awk '{print $2}'"). '</td>';
-					echo '<td>' .$icn. '' .$valid. '</td>';
-					echo '<td><a href="https://www.ssllabs.com/ssltest/analyze.html?d=' .$domain. '&latest">' .$grade. '<a/></td>';
-					echo '<td>' .exec("echo $item | awk '{print $4,$5,$6}'"). '</td>';
-					echo '<td>' .$icn. '' .$dayleft. '</td>';
+					echo '<td class="center aligned">' .$icn. '' .$tdvalid. '</td>';
+					echo '<td class="center aligned"><a href="https://www.ssllabs.com/ssltest/analyze.html?d=' .$domain. '&latest">' .$grade. '<a/></td>';
+					echo '<td class="center aligned">' .exec("echo $item | awk '{print $4,$5,$6}'"). '</td>';
+					echo '<td class="center aligned">' .$icn. '' .$dayleft. '</td>';
 					echo '</tr>';
 			}
       ?>
