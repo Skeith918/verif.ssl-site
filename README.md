@@ -30,7 +30,7 @@ www-data ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 cgi.fix_pathinfo=0
 ```
-- Modifiez le fichier nginx.conf pour qu'il corresponde avec votre installation
+- Modifiez le fichier nginx.conf pour qu'il corresponde avec votre installation après l'avoir déplacé dans **__/etc/nginx/sites-available__**
 ```
 server_name [le nom de domaine de votre choix];
 root [le chemin absolu du répertoire d'installation de verif.ssl-site];
