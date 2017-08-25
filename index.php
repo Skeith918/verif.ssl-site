@@ -71,7 +71,7 @@ foreach($domain as $item){
       <th class="center aligned">Nom de Domaine</th>
       <th class="center aligned">Addresse IP</th>
 			<th class="center aligned">Validité du certificat</th>
-			<th class="center aligned">Note SSL</th>
+			<th class="center aligned">Note SSL<a href="https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide"><i class="help icon"></a></i></th>
       <th class="center aligned">Date d'expiration</th>
 			<th class="center aligned">Jours Restants</th>
     </tr>
@@ -119,9 +119,10 @@ foreach($domain as $item){
 <div class="ui inverted vertical footer segment">
   <div class="ui container">
 		<footer>
-			<p align="center"> P.O.C Made by <a href="https://github.com/Skeith918">Skeith918.</a></p>
-			<p align="center"> Source Code released on <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
-			<p align="center"> Design Powered by <a href="https://semantic-ui.com/">Semantic UI</a> CDN</p>
+			<p align="center"> Fait par <a href="https://github.com/Skeith918">Skeith918.</a></p>
+			<p align="center"> Le code source est disponible <a href="https://github.com/Skeith918/verif.ssl-site">Github</a></p>
+			<p align="center"> L'API <a href="https://github.com/Skeith918/verif.ssl-site">Qualys SSL Labs</a> est utilisée pour calculer les notes SSL.</p>
+			<p align="center"> Design généré avec <a href="https://semantic-ui.com/">Semantic UI</a></p>
 		</footer>
 	</div>
 </div>
