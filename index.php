@@ -12,14 +12,14 @@ foreach($domain as $item){
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<link rel="shortcut icon" href="http://www.iconarchive.com/download/i103471/paomedia/small-n-flat/sign-check.ico" width="16" height="16">
+	<link rel="shortcut icon" href="http:/\/verif.ssl.local/.sign-check.ico" width="16" height="16">
 	<title>Verif.SSL</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/search.js"></script>
+	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
+	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
+  <script src="https:/\/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/search.js"></script>
 
 </head>
 
@@ -27,7 +27,7 @@ foreach($domain as $item){
 	<div class="ui fixed inverted menu">
     <div class="ui container">
       <a href="/" class="header item">
-        <img class="logo" src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/128/sign-check-icon.png" width="32" height="32">
+        <img class="logo" src="http:/\/verif.ssl.local/.sign-check.ico" width="32" height="32">
         Verif.SSL
       </a>
 			<div class="fixed right item">
