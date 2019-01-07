@@ -1,5 +1,5 @@
 <?php
-exec('/var/www/verif.ssl-site/deploy.sh');
+exec('/var/www/verif.ssl-site/.deploy.sh');
 ?>
 
 <!DOCTYPE html>
