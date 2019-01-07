@@ -17,5 +17,5 @@ webmail.data.gouv.fr 37.59.183.65 Valid 12 Mar 2019 64
 snoussi.fr 51.68.224.187 Valid 7 Apr 2019 90
 mail.snoussi.fr 51.68.224.187 Valid 6 Feb 2019 30
 cloud.snoussi.fr 51.68.224.187 Valid 6 Feb 2019 30
-pfa.snoussi.fr 51.68.224.187 Valid 6 Feb 2019 30
-rspam.snoussi.fr 51.68.224.187 Valid 6 Feb 2019 30
+storage.data.gouv.fr ceph-rgw-01.infra.data.gouv.fr. Valid 11 Mar 2019 63
+test.decidim.etalab.gouv.fr 193.70.86.67 Valid 7 Apr 2019 90
