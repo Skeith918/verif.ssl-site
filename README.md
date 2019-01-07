@@ -41,7 +41,5 @@ ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 ```
 # Usages
 
-- Entrez la liste des domaines à verifier dans **__~/verif.ssl-site/domainlist__** (**UN seul domaine par ligne !**)
-- Lancez le script deploy.sh (vous devrez le faire à chaque nouvel ajout de domaine sinon cela ne fonctionnera pas et vous aurez une erreur 504 Gateway Timeout) 
-- Une fois l'exécution du script achevé vous pouvez accéder à l'interface !
-
+- Créez le fichier **__domainlist__** à la racine et entrez y la liste des domaines a tester (**UN seul domaine par ligne !**)
+- Vous pouvez maintenant consulté le statut de vos certificats sur l'interface!
