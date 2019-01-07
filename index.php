@@ -10,11 +10,13 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 	<title>Verif.SSL</title>
 	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
 	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
+	<link rel="stylesheet" href="https:/\/cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css" />
 	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 	<script src="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/search.js"></script>
-
+	<script src="https:/\/cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https:/\/cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
 </head>
 <body>
 	<div class="ui fixed inverted menu">
@@ -51,8 +53,12 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 					<p>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</p>
 					<p>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</p>
 				</div>
-
-	<table class="ui celled table segment">
+	<?php
+		echo '<form method="post" action="index.php">
+		<button class="ui blue active button">Rafraîchir la page</button>
+		</form>';
+	?>
+        <table id="mainTable" class="ui celled table">
 	<thead>
 		<tr>
 			<th class="center aligned">Nom de Domaine</th>
@@ -95,10 +101,26 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 		?>
 	</tbody>
 	</table>
+	</br>
+	<div class="ui one column stackable center aligned page grid">
+		<script>
+		$(document).ready(function() {
+    			$('#mainTable').DataTable({
+				"order": [[ 4, "asc" ]],
+				"pageLength": 50,
+				"language": {
+			            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+				}
+			});
+		});
+		</script>
+		<button class="ui blue active button" onclick="topFunction()" id="topBtn" title="Go to top">Retour en haut de la page</button>
+	</div>
 	</div>
 	</div>
 </body>
-</br></br>
+</br>
+</br>
 <div class="ui inverted vertical footer segment">
   <div class="ui container">
 		<footer>
@@ -110,3 +132,23 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 	</div>
 </div>
 </html>
+<script>
+
+// When the user scrolls down 20px from the top of the document, show the button
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topBtn").style.display = "block";
+  } else {
+    document.getElementById("topBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>

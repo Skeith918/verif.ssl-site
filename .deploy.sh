@@ -1,5 +1,5 @@
+cp /dev/null .certinfo
 while read line; do
-  sed -i '/'$line'/d' .certinfo
   check=$(/usr/bin/ssl-cert-check -b -s $line -p 443)
   ip=$(dig +short $line | awk '{ print ; exit }')
   valid=$(echo $check | awk '{print $2}')
