@@ -6,7 +6,7 @@ exec('./.deploy.sh');
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<link rel="shortcut icon" href="http:/\/verif-site.ssl/.sign-check.ico" width="16" height="16">
+	<link rel="shortcut icon" href=".sign-check.ico" width="16" height="16">
 	<title>Verif.SSL</title>
 	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
 	<link rel="stylesheet" href="https:/\/cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
