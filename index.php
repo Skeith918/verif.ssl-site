@@ -1,5 +1,5 @@
 <?php
-exec('/var/www/verif.ssl-site/.deploy.sh');
+exec('./.deploy.sh');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 <body>
 	<div class="ui fixed inverted menu">
 	<div class="ui container">
-	<a href="/" class="header item"><img class="logo" src="http:/\/verif-site.ssl/.sign-check.ico" width="32" height="32">Verif.SSL</a>
+	<a href="/" class="header item"><img class="logo" src=".sign-check.ico" width="32" height="32">Verif.SSL</a>
 	<div class="fixed right item">
 		<div id="date_heure">
 			<script type="text/javascript">
@@ -50,8 +50,8 @@ exec('/var/www/verif.ssl-site/.deploy.sh');
 			</br></br>
 				<h1 class="ui header" align="center"><strong>LE VÉRIFICATEUR DE VALIDITÉ DE CERTIFICAT SSL</strong></h1>
 				<div class="ui message info">
-					<p>Cette page statique est générée automatiquement à partir des domaines renseignés dans le fichier dédié et ceux chaques requêtes sur celle-ci.</p>
-					<p>Elle renseigne la validité des certificats SSL mais aussi leurs date d'expiration ainsi que le nombre de jours restants avant celle-ci.</p>
+					<p>Cette page est générée automatiquement à partir du fichier spécifiant les domaines à tester.</p>
+					<p>Elle fournis donc les informations relatives aux certificats liés aux domaines (Validité, Date d'expiration, etc.).</p>
 				</div>
 	<?php
 		echo '<form method="post" action="index.php">
