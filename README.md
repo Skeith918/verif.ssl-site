@@ -5,10 +5,11 @@
 #### Requis 
 - Nginx
 - ssl-cert-check
-- php7
-- php7-fpm
-- php7.0-curl
-- [ssllabs-scan](https://github.com/ssllabs/ssllabs-scan/releases)
+- dnsutils
+- php7.X
+- php7.X-fpm
+- php7.X-curl
+- [ssllabs-scan](https://github.com/ssllabs/ssllabs-scan/releases) (deprecated)
 ```
 sudo apt install -y php php-fpm php-curl nginx ssl-cert-check
 ```
@@ -22,7 +23,7 @@ chown -R www-data:www-data /path/to/verif.ssl-site /path/to/it/parent
 ```
 www-data ALL=(ALL:ALL) NOPASSWD: ALL
 ```
-- Dans le fichier **__/etc/php/7.0/fpm/php.ini__**, modifiez la ligne suivante...
+- Dans le fichier **__/etc/php/7.X/fpm/php.ini__**, modifiez la ligne suivante...
 ```
 ;cgi.fix_pathinfo=1
 ```
