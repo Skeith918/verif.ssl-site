@@ -11,7 +11,7 @@
 - php7.X-curl
 - [ssllabs-scan](https://github.com/ssllabs/ssllabs-scan/releases) (deprecated)
 ```
-sudo apt install -y php php-fpm php-curl nginx ssl-cert-check
+sudo apt install -y php php-fpm php-curl nginx ssl-cert-check dnsutils
 ```
 
 #### Procédure
